@@ -13,7 +13,6 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
   <!-- CSS -->
-  @vite(['resources/js/app.js', 'resources/css/app.css'])
 </head>
 
 <body class="bg-dark text-light">
