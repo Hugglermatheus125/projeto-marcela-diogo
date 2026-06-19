@@ -14,3 +14,27 @@ Route::get('/contato', [contatoController::class, 'contato'])->name('contato');
 Route::get('/criarconta', [criarcontaController::class, 'criarconta'])->name('criarconta');
 Route::get('/usuario', [usuarioController::class, 'usuario'])->name('usuario');
 Route::get('/metas', [metasController::class, 'metas'])->name('metas');
+
+Route::get('/', function () {
+    return view('inicio');
+})->name('inicio');
+
+Route::get('/sobre', function () {
+    return view('sobre');
+})->name('sobre');
+
+Route::get('/metas', function () {
+    return view('metas');
+})->name('metas');
+
+Route::get('/contato', function () {
+    return view('contato');
+})->name('contato');
+
+Route::get('/criar-conta', function () {
+    return view('criarconta');
+})->name('criarconta');
+
+Route::get('/usuario', function () {
+    return view('usuario');
+})->name('usuario');

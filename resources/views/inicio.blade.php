@@ -6,19 +6,16 @@
 
   <title>Recomeço</title>
 
-  <!-- Bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
-  <!-- Bootstrap Icons -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
 
 <body class="bg-dark text-light">
 
-  <!-- NAVBAR -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-black border-bottom border-secondary">
     <div class="container">
-      <a class="navbar-brand fw-bold fs-3" href="#">
+      <a class="navbar-brand fw-bold fs-3" href="{{ route('inicio') }}">
         <i class="bi bi-heart-pulse-fill text-danger"></i> Recomeço
       </a>
 
@@ -29,30 +26,29 @@
       <div class="collapse navbar-collapse" id="menu">
         <ul class="navbar-nav ms-auto">
           <li class="nav-item">
-            <a class="nav-link active" href="index.html">Início</a>
+            <a class="nav-link active" href="{{ route('inicio') }}">Início</a>
           </li>
 
           <li class="nav-item">
-            <a class="nav-link" href="sobre.html">Sobre</a>
+            <a class="nav-link" href="{{ route('sobre') }}">Sobre</a>
           </li>
 
           <li class="nav-item">
-            <a class="nav-link" href="metas.html">Metas</a>
+            <a class="nav-link" href="{{ route('metas') }}">Metas</a>
           </li>
 
           <li class="nav-item">
-            <a class="nav-link" href="contato.html">Contato</a>
+            <a class="nav-link" href="{{ route('contato') }}">Contato</a>
           </li>
 
           <li class="nav-item">
-            <a class="nav-link" href="criarconta.html">Usuário</a>
+            <a class="nav-link" href="{{ route('usuario') }}">Usuário</a>
           </li>
         </ul>
       </div>
     </div>
   </nav>
 
-  <!-- HERO -->
   <section class="py-5">
     <div class="container">
       <div class="row align-items-center min-vh-75">
@@ -71,11 +67,11 @@
           </p>
 
           <div class="d-flex gap-3">
-            <a href="sobre.html" class="btn btn-danger">
+            <a href="{{ route('sobre') }}" class="btn btn-danger">
               Sobre
             </a>
 
-            <a href="criarconta.html" class="btn btn-light">
+            <a href="{{ route('criarconta') }}" class="btn btn-light">
               Começar Agora
             </a>
 
@@ -94,7 +90,6 @@
     </div>
   </section>
 
-  <!-- CARDS -->
   <section class="py-5">
     <div class="container">
 
@@ -167,7 +162,6 @@
     </div>
   </section>
 
-  <!-- CALL TO ACTION -->
   <section class="py-5">
     <div class="container">
 
@@ -181,7 +175,7 @@
           Comece hoje a construir uma rotina melhor.
         </p>
 
-        <a href="criarconta.html" class="btn btn-light btn-lg px-5 fw-bold">
+        <a href="{{ route('criarconta') }}" class="btn btn-light btn-lg px-5 fw-bold">
           Criar Conta
         </a>
 
@@ -190,7 +184,6 @@
     </div>
   </section>
 
-  <!-- FOOTER -->
   <footer class="bg-black border-top border-secondary py-4 mt-5">
     <div class="container text-center">
 
@@ -205,9 +198,9 @@
     </div>
   </footer>
 
-  <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="script.js"></script>
+  
+  <script src="{{ asset('js/script.js') }}"></script>
 
 </body>
 </html>

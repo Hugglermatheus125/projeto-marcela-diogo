@@ -6,22 +6,18 @@
 
   <title>Meu Perfil | Recomeço</title>
 
-  <!-- Bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
-  <!-- Bootstrap Icons -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
-  <!-- CSS -->
-</head>
+  </head>
 
 <body class="bg-dark text-light">
 
-<!-- NAVBAR -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-black border-bottom border-secondary">
   <div class="container">
 
-    <a class="navbar-brand fw-bold fs-3" href="index.html">
+    <a class="navbar-brand fw-bold fs-3" href="{{ route('inicio') }}">
       <i class="bi bi-heart-pulse-fill text-danger"></i> Recomeço
     </a>
 
@@ -33,23 +29,27 @@
       <ul class="navbar-nav ms-auto">
 
         <li class="nav-item">
-          <a class="nav-link" href="index.html">Início</a>
+          <a class="nav-link" href="{{ route('inicio') }}">Início</a>
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" href="metas.html">Metas</a>
+          <a class="nav-link" href="{{ route('sobre') }}">Sobre</a>
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" href="contato.html">Contato</a>
+          <a class="nav-link" href="{{ route('metas') }}">Metas</a>
         </li>
 
         <li class="nav-item">
-            <a class="nav-link" href="criarconta.html">Usuário</a>
-          </li>
+          <a class="nav-link" href="{{ route('contato') }}">Contato</a>
+        </li>
 
         <li class="nav-item">
-          <button id="logoutBtn" class="btn btn-outline-light btn-sm ms-3">
+            <a class="nav-link active" href="{{ route('usuario') }}">Usuário</a>
+        </li>
+
+        <li class="nav-item">
+          <button id="logoutBtn" class="btn btn-outline-light btn-sm ms-3 mt-1">
             Sair
           </button>
         </li>
@@ -60,8 +60,7 @@
   </div>
 </nav>
 
-<!-- HERO PERFIL -->
-<section>
+<section class="py-5">
   <div class="container">
 
     <div class="text-center mb-5">
@@ -76,14 +75,13 @@
 
     </div>
 
-    <!-- INFO USUÁRIO -->
     <div class="row g-4">
 
       <div class="col-lg-4">
 
-        <div class="card bg-black border-secondary shadow-lg rounded-4">
+        <div class="card bg-black border-secondary shadow-lg rounded-4 h-100">
 
-          <div class="card-body text-center">
+          <div class="card-body text-center d-flex flex-column justify-content-center">
 
             <i class="bi bi-person-badge display-1 text-danger"></i>
 
@@ -95,13 +93,13 @@
               email@exemplo.com
             </p>
 
-            <hr>
+            <hr class="border-secondary">
 
-            <p class="text-secondary">
+            <p class="text-secondary mb-1">
               Status: <span class="text-success fw-bold">Ativo</span>
             </p>
 
-            <p class="text-secondary">
+            <p class="text-secondary mb-0">
               Membro desde: <span class="text-light">Hoje</span>
             </p>
 
@@ -111,10 +109,9 @@
 
       </div>
 
-      <!-- PROGRESSO -->
       <div class="col-lg-8">
 
-        <div class="card bg-black border-secondary shadow-lg rounded-4">
+        <div class="card bg-black border-secondary shadow-lg rounded-4 h-100">
 
           <div class="card-body">
 
@@ -122,24 +119,24 @@
               Seu Progresso Geral
             </h3>
 
-            <p class="text-secondary">Álcool</p>
-            <div class="progress mb-3">
-              <div class="progress-bar bg-danger" style="width: 60%;">60%</div>
+            <p class="text-secondary mb-1">Álcool</p>
+            <div class="progress mb-3 bg-dark">
+              <div class="progress-bar bg-danger" role="progressbar" style="width: 60%;" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100">60%</div>
             </div>
 
-            <p class="text-secondary">Cigarro</p>
-            <div class="progress mb-3">
-              <div class="progress-bar bg-info" style="width: 40%;">40%</div>
+            <p class="text-secondary mb-1">Cigarro</p>
+            <div class="progress mb-3 bg-dark">
+              <div class="progress-bar bg-info" role="progressbar" style="width: 40%;" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100">40%</div>
             </div>
 
-            <p class="text-secondary">Apostas</p>
-            <div class="progress mb-3">
-              <div class="progress-bar bg-warning" style="width: 30%;">30%</div>
+            <p class="text-secondary mb-1">Apostas</p>
+            <div class="progress mb-3 bg-dark">
+              <div class="progress-bar bg-warning text-dark fw-bold" role="progressbar" style="width: 30%;" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100">30%</div>
             </div>
 
-            <p class="text-secondary">Casas Noturnas</p>
-            <div class="progress">
-              <div class="progress-bar bg-success" style="width: 70%;">70%</div>
+            <p class="text-secondary mb-1">Casas Noturnas</p>
+            <div class="progress bg-dark">
+              <div class="progress-bar bg-success" role="progressbar" style="width: 70%;" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100">70%</div>
             </div>
 
           </div>
@@ -150,10 +147,8 @@
 
     </div>
 
-    <!-- LINHA 2 -->
-    <div class="row g-4 mt-4">
+    <div class="row g-4 mt-2">
 
-      <!-- CONQUISTAS -->
       <div class="col-lg-6">
 
         <div class="card bg-black border-secondary shadow-lg rounded-4 h-100">
@@ -190,7 +185,6 @@
 
       </div>
 
-      <!-- PRÓXIMAS METAS -->
       <div class="col-lg-6">
 
         <div class="card bg-black border-secondary shadow-lg rounded-4 h-100">
@@ -232,21 +226,20 @@
   </div>
 </section>
 
-<!-- CTA -->
-<section>
+<section class="py-5">
   <div class="container">
 
     <div class="bg-danger rounded-4 p-5 text-center shadow-lg">
 
-      <h2 class="fw-bold">
+      <h2 class="fw-bold mb-3">
         Continue evoluindo, um dia de cada vez.
       </h2>
 
-      <p class="lead">
+      <p class="lead mb-4">
         Sua jornada ainda está no começo.
       </p>
 
-      <a href="metas.html" class="btn btn-light btn-lg fw-bold">
+      <a href="{{ route('metas') }}" class="btn btn-light btn-lg fw-bold px-5">
         Ver Metas
       </a>
 
@@ -255,7 +248,6 @@
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer class="bg-black border-top border-secondary py-4">
 
   <div class="container text-center">
@@ -272,9 +264,9 @@
 
 </footer>
 
-<!-- SCRIPT -->
-<script src="script.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<script src="{{ asset('js/script.js') }}"></script>
 
 </body>
 </html>

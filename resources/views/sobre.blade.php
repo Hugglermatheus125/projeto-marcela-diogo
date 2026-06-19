@@ -7,20 +7,17 @@
 
     <title>Sobre | Recomeço</title>
 
-    <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
 
 <body class="bg-dark text-light">
 
-    <!-- NAVBAR -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-black border-bottom border-secondary">
         <div class="container">
 
-            <a class="navbar-brand fw-bold fs-3" href="#">
+            <a class="navbar-brand fw-bold fs-3" href="{{ route('inicio') }}">
                 <i class="bi bi-heart-pulse-fill text-danger"></i> Recomeço
             </a>
 
@@ -32,24 +29,24 @@
                 <ul class="navbar-nav ms-auto">
 
                     <li class="nav-item">
-                        <a class="nav-link active" href="index.html">Início</a>
+                        <a class="nav-link" href="{{ route('inicio') }}">Início</a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="sobre.html">Sobre</a>
+                        <a class="nav-link active" href="{{ route('sobre') }}">Sobre</a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="metas.html">Metas</a>
+                        <a class="nav-link" href="{{ route('metas') }}">Metas</a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="contato.html">Contato</a>
+                        <a class="nav-link" href="{{ route('contato') }}">Contato</a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="criarconta.html">Usuário</a>
-                      </li>
+                        <a class="nav-link" href="{{ route('usuario') }}">Usuário</a>
+                    </li>
 
                 </ul>
             </div>
@@ -57,7 +54,6 @@
         </div>
     </nav>
 
-    <!-- HERO -->
     <section class="py-5">
         <div class="container">
 
@@ -78,9 +74,9 @@
                         através de acompanhamento diário, metas e apoio emocional.
                     </p>
 
-                    <button class="btn btn-danger btn-lg px-4">
+                    <a href="{{ route('criarconta') }}" class="btn btn-danger btn-lg px-4">
                         Começar Agora
-                    </button>
+                    </a>
 
                 </div>
 
@@ -96,7 +92,6 @@
         </div>
     </section>
 
-    <!-- MISSÃO -->
     <section class="py-5 bg-black">
         <div class="container">
 
@@ -117,7 +112,6 @@
                 <div class="col-md-4">
 
                     <div class="card bg-dark border-secondary text-light h-100 shadow">
-
                         <div class="card-body text-center p-4">
 
                             <i class="bi bi-heart display-3 text-danger"></i>
@@ -131,7 +125,6 @@
                             </p>
 
                         </div>
-
                     </div>
 
                 </div>
@@ -139,7 +132,6 @@
                 <div class="col-md-4">
 
                     <div class="card bg-dark border-secondary text-light h-100 shadow">
-
                         <div class="card-body text-center p-4">
 
                             <i class="bi bi-bar-chart-line display-3 text-success"></i>
@@ -153,7 +145,6 @@
                             </p>
 
                         </div>
-
                     </div>
 
                 </div>
@@ -161,7 +152,6 @@
                 <div class="col-md-4">
 
                     <div class="card bg-dark border-secondary text-light h-100 shadow">
-
                         <div class="card-body text-center p-4">
 
                             <i class="bi bi-shield-check display-3 text-info"></i>
@@ -175,7 +165,6 @@
                             </p>
 
                         </div>
-
                     </div>
 
                 </div>
@@ -185,7 +174,6 @@
         </div>
     </section>
 
-    <!-- COMO FUNCIONA -->
     <section class="py-5">
         <div class="container">
 
@@ -204,7 +192,6 @@
             <div class="row g-4">
 
                 <div class="col-lg-4">
-
                     <div class="p-4 border border-secondary rounded-4 h-100 bg-black">
 
                         <h1 class="display-3 fw-bold text-danger">
@@ -220,11 +207,9 @@
                         </p>
 
                     </div>
-
                 </div>
 
                 <div class="col-lg-4">
-
                     <div class="p-4 border border-secondary rounded-4 h-100 bg-black">
 
                         <h1 class="display-3 fw-bold text-danger">
@@ -240,11 +225,9 @@
                         </p>
 
                     </div>
-
                 </div>
 
                 <div class="col-lg-4">
-
                     <div class="p-4 border border-secondary rounded-4 h-100 bg-black">
 
                         <h1 class="display-3 fw-bold text-danger">
@@ -260,7 +243,6 @@
                         </p>
 
                     </div>
-
                 </div>
 
             </div>
@@ -268,7 +250,6 @@
         </div>
     </section>
 
-    <!-- CTA -->
     <section class="py-5">
         <div class="container">
 
@@ -282,7 +263,7 @@
                     Pequenas mudanças diárias criam grandes resultados.
                 </p>
 
-                <a href="criarconta.html" class="btn btn-light btn-lg px-5 fw-bold">
+                <a href="{{ route('criarconta') }}" class="btn btn-light btn-lg px-5 fw-bold">
                     Criar Conta
                 </a>
 
@@ -291,9 +272,7 @@
         </div>
     </section>
 
-    <!-- FOOTER -->
     <footer class="bg-black border-top border-secondary py-4">
-
         <div class="container text-center">
 
             <h5 class="fw-bold">
@@ -305,12 +284,11 @@
             </p>
 
         </div>
-
     </footer>
 
-    <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="script.js"></script>
+    
+    <script src="{{ asset('js/script.js') }}"></script>
 
 </body>
 
