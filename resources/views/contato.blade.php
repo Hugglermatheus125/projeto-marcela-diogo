@@ -20,7 +20,7 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-black border-bottom border-secondary">
         <div class="container">
 
-            <a class="navbar-brand fw-bold fs-3" href="#">
+            <a class="navbar-brand fw-bold fs-3" href="{{ route('inicio') }}">
                 <i class="bi bi-heart-pulse-fill text-danger"></i> Recomeço
             </a>
 
@@ -31,25 +31,25 @@
             <div class="collapse navbar-collapse" id="menu">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link active" href="index.html">Início</a>
+                        <a class="nav-link" href="{{ route('inicio') }}">Início</a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="sobre.html">Sobre</a>
+                        <a class="nav-link" href="{{ route('sobre') }}">Sobre</a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="metas.html">Metas</a>
+                        <a class="nav-link" href="{{ route('metas') }}">Metas</a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="contato.html">Contato</a>
+                        <!-- Classe active movida para Contato -->
+                        <a class="nav-link active" href="{{ route('contato') }}">Contato</a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="criarconta.html">Usuário</a>
-                      </li>
-
+                        <a class="nav-link" href="{{ route('usuario') }}">Usuário</a>
+                    </li>
                 </ul>
             </div>
 
@@ -89,41 +89,37 @@
                                 Envie uma mensagem
                             </h3>
 
-                            <form>
+                            <!-- O action deverá apontar para a rota de disparo de e-mail/salvamento do form -->
+                            <form action="#" method="POST">
+                                
+                                <!-- Lembre-se de descomentar o @csrf abaixo quando for integrar o back-end -->
+                                <!-- @csrf -->
 
                                 <div class="row">
 
                                     <div class="col-md-6 mb-4">
                                         <label class="form-label">Nome</label>
-
-                                        <input type="text" class="form-control bg-dark text-light border-secondary"
-                                            placeholder="Seu nome">
+                                        <input type="text" class="form-control bg-dark text-light border-secondary" placeholder="Seu nome" name="nome" required>
                                     </div>
 
                                     <div class="col-md-6 mb-4">
                                         <label class="form-label">Email</label>
-
-                                        <input type="email" class="form-control bg-dark text-light border-secondary"
-                                            placeholder="seuemail@gmail.com">
+                                        <input type="email" class="form-control bg-dark text-light border-secondary" placeholder="seuemail@gmail.com" name="email" required>
                                     </div>
 
                                 </div>
 
                                 <div class="mb-4">
                                     <label class="form-label">Assunto</label>
-
-                                    <input type="text" class="form-control bg-dark text-light border-secondary"
-                                        placeholder="Digite o assunto">
+                                    <input type="text" class="form-control bg-dark text-light border-secondary" placeholder="Digite o assunto" name="assunto" required>
                                 </div>
 
                                 <div class="mb-4">
                                     <label class="form-label">Mensagem</label>
-
-                                    <textarea rows="6" class="form-control bg-dark text-light border-secondary"
-                                        placeholder="Digite sua mensagem..."></textarea>
+                                    <textarea rows="6" class="form-control bg-dark text-light border-secondary" placeholder="Digite sua mensagem..." name="mensagem" required></textarea>
                                 </div>
 
-                                <button class="btn btn-danger btn-lg px-5">
+                                <button type="submit" class="btn btn-danger btn-lg px-5">
                                     Enviar Mensagem
                                 </button>
 
@@ -145,42 +141,33 @@
                         </h2>
 
                         <div class="mb-4">
-
                             <h5>
                                 <i class="bi bi-envelope-fill text-danger"></i>
                                 Email
                             </h5>
-
                             <p class="text-secondary">
                                 contato@recomeco.com
                             </p>
-
                         </div>
 
                         <div class="mb-4">
-
                             <h5>
                                 <i class="bi bi-telephone-fill text-danger"></i>
                                 Telefone
                             </h5>
-
                             <p class="text-secondary">
                                 (11) 99999-9999
                             </p>
-
                         </div>
 
                         <div class="mb-4">
-
                             <h5>
                                 <i class="bi bi-geo-alt-fill text-danger"></i>
                                 Localização
                             </h5>
-
                             <p class="text-secondary">
                                 São Paulo - Brasil
                             </p>
-
                         </div>
 
                         <div class="mt-5">
@@ -190,23 +177,18 @@
                             </h4>
 
                             <div class="d-flex gap-3">
-
-                                <button class="btn btn-outline-light">
+                                <button type="button" class="btn btn-outline-light">
                                     <i class="bi bi-instagram"></i>
                                 </button>
-
-                                <button class="btn btn-outline-light">
+                                <button type="button" class="btn btn-outline-light">
                                     <i class="bi bi-facebook"></i>
                                 </button>
-
-                                <button class="btn btn-outline-light">
+                                <button type="button" class="btn btn-outline-light">
                                     <i class="bi bi-twitter-x"></i>
                                 </button>
-
-                                <button class="btn btn-outline-light">
+                                <button type="button" class="btn btn-outline-light">
                                     <i class="bi bi-whatsapp"></i>
                                 </button>
-
                             </div>
 
                         </div>
@@ -234,7 +216,7 @@
                     Cada passo conta na construção de uma nova vida.
                 </p>
 
-                <a href="criarconta.html" class="btn btn-light btn-lg px-5 fw-bold">
+                <a href="{{ route('criarconta') }}" class="btn btn-light btn-lg px-5 fw-bold">
                     Criar Conta
                 </a>
 
@@ -262,7 +244,9 @@
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="script.js"></script>
+    
+    <!-- Helper Asset para o script JS -->
+    <script src="{{ asset('js/script.js') }}"></script>
 
 </body>
 
