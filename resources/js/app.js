@@ -59,7 +59,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 email,
                 senha,
 
-                // 🎯 metas iniciais
+                // 🎯 metas iniciais (Começam em 0% para o novo usuário)
                 metas: {
                     alcool: 0,
                     cigarro: 0,
@@ -128,21 +128,46 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // =========================
-    // 📊 METAS DINÂMICAS (metas.html)
+    // 📊 METAS DINÂMICAS & CLIQUES (metas.html)
     // =========================
     const user = getUser();
 
     if (user && currentPage === "metas.html") {
 
-        const set = (id, value) => {
-            const el = document.getElementById(id);
-            if (el) el.innerText = value + "%";
-        };
+        // Captura todos os botões de "+1 Dia Sem" na página de metas
+        const botoesRegistrar = document.querySelectorAll(".btn-registrar");
+        
+        if (botoesRegistrar.length > 0) {
+            botoesRegistrar.forEach(botao => {
+                botao.addEventListener("click", (e) => {
+                    // Descobre qual vício o botão clicado representa
+                    const vicio = e.target.getAttribute("data-vicio");
+                    
+                    if (user.metas[vicio] !== undefined) {
+                        if (user.metas[vicio] < 100) {
+                            // Incrementa 5% a cada clique até o limite de 100%
+                            user.metas[vicio] = Math.min(user.metas[vicio] + 5, 100);
+                            saveUser(user);
+                            alert(`Progresso em "${vicio.toUpperCase()}" atualizado! Novo valor: ${user.metas[vicio]}%`);
+                        } else {
+                            alert("Você já atingiu o progresso máximo (100%) para esta meta!");
+                        }
+                    }
+                });
+            });
+        }
 
-        set("alcool", user.metas.alcool);
-        set("cigarro", user.metas.cigarro);
-        set("jogo", user.metas.jogo);
-        set("balada", user.metas.balada);
+        // Botão opcional para limpar dados de progresso e voltar ao zero
+        const btnReset = document.getElementById("resetProgresso");
+        if (btnReset) {
+            btnReset.addEventListener("click", () => {
+                if (confirm("Deseja redefinir todo o seu progresso atual para 0%?")) {
+                    user.metas = { alcool: 0, cigarro: 0, jogo: 0, balada: 0 };
+                    saveUser(user);
+                    location.reload();
+                }
+            });
+        }
     }
 
     // =========================
@@ -158,15 +183,41 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // =========================
-    // ✏️ EDIÇÃO USUÁRIO (usuario.html)
+    // ✏️ EDIÇÃO USUÁRIO & PROGRESSO (usuario.html)
     // =========================
     if (user && currentPage === "usuario.html") {
 
+        // Renderiza os dados cadastrais nos inputs
         const nomeInput = document.getElementById("nome");
         const emailInput = document.getElementById("email");
 
         if (nomeInput) nomeInput.value = user.nome;
         if (emailInput) emailInput.value = user.email;
+
+        // Renderiza dinamicamente as barras de progresso do usuário logado
+        const atualizarBarrasDeProgresso = () => {
+            const chavesMetas = {
+                alcool: "bar-alcool",
+                cigarro: "bar-cigarro",
+                jogo: "bar-apostas",      // mapeia chave interna 'jogo' para o id 'bar-apostas' do HTML
+                balada: "bar-casas_noturnas" // mapeia chave interna 'balada' para o id 'bar-casas_noturnas'
+            };
+
+            Object.keys(chavesMetas).forEach(chave => {
+                const idElemento = chavesMetas[chave];
+                const barra = document.getElementById(idElemento);
+                
+                if (barra && user.metas && user.metas[chave] !== undefined) {
+                    const valorProgresso = user.metas[chave];
+                    barra.style.width = `${valorProgresso}%`;
+                    barra.setAttribute("aria-valuenow", valorProgresso);
+                    barra.innerText = `${valorProgresso}%`;
+                }
+            });
+        };
+
+        // Executa a atualização visual das barras ao abrir a tela de usuário
+        atualizarBarrasDeProgresso();
 
         window.salvarDados = function () {
 
