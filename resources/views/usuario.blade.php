@@ -7,7 +7,6 @@
   <title>Meu Perfil | Recomeço</title>
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
   </head>
@@ -121,22 +120,22 @@
 
             <p class="text-secondary mb-1">Álcool</p>
             <div class="progress mb-3 bg-dark">
-              <div class="progress-bar bg-danger" role="progressbar" style="width: 60%;" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100">60%</div>
+              <div id="bar-alcool" class="progress-bar bg-danger" role="progressbar" style="width: 60%;" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100">60%</div>
             </div>
 
             <p class="text-secondary mb-1">Cigarro</p>
             <div class="progress mb-3 bg-dark">
-              <div class="progress-bar bg-info" role="progressbar" style="width: 40%;" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100">40%</div>
+              <div id="bar-cigarro" class="progress-bar bg-info text-dark fw-bold" role="progressbar" style="width: 40%;" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100">40%</div>
             </div>
 
             <p class="text-secondary mb-1">Apostas</p>
             <div class="progress mb-3 bg-dark">
-              <div class="progress-bar bg-warning text-dark fw-bold" role="progressbar" style="width: 30%;" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100">30%</div>
+              <div id="bar-apostas" class="progress-bar bg-warning text-dark fw-bold" role="progressbar" style="width: 30%;" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100">30%</div>
             </div>
 
             <p class="text-secondary mb-1">Casas Noturnas</p>
             <div class="progress bg-dark">
-              <div class="progress-bar bg-success" role="progressbar" style="width: 70%;" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100">70%</div>
+              <div id="bar-casas_noturnas" class="progress-bar bg-success text-dark fw-bold" role="progressbar" style="width: 70%;" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100">70%</div>
             </div>
 
           </div>
@@ -237,7 +236,7 @@
 
       <p class="lead mb-4">
         Sua jornada ainda está no começo.
-      </p>
+      </h2>
 
       <a href="{{ route('metas') }}" class="btn btn-light btn-lg fw-bold px-5">
         Ver Metas
@@ -265,7 +264,6 @@
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
 <script src="{{ asset('js/script.js') }}"></script>
 
 </body>
