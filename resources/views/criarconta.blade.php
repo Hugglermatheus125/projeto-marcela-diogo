@@ -38,7 +38,8 @@
               Login
             </h3>
 
-            <form action="#" method="POST" id="loginForm">
+            <form action="{{ route('criarconta') }}" method="POST">
+              @csrf
               
               <div class="mb-3">
                 <label class="form-label">Email</label>
@@ -76,7 +77,8 @@
               Criar Conta
             </h3>
 
-            <form action="#" method="POST" id="registerForm">
+            <form action="{{ route('criarconta') }}" method="POST">
+              @csrf
               
               <div class="mb-3">
                 <label class="form-label">Nome</label>
