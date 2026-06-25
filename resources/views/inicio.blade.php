@@ -71,7 +71,7 @@
               Sobre
             </a>
 
-            <a href="{{ route('criarconta') }}" class="btn btn-light">
+            <a href="{{ route('criarconta.index') }}" class="btn btn-light">
               Começar Agora
             </a>
 
@@ -175,7 +175,7 @@
           Comece hoje a construir uma rotina melhor.
         </p>
 
-        <a href="{{ route('criarconta') }}" class="btn btn-light btn-lg px-5 fw-bold">
+        <a href="{{ route('criarconta.index') }}" class="btn btn-light btn-lg px-5 fw-bold">
           Criar Conta
         </a>
 

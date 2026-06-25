@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -38,22 +39,38 @@
               Login
             </h3>
 
-            <form action="{{ route('criarconta') }}" method="POST">
+            <form action="{{ route('criarconta.login') }}" method="POST">
               @csrf
-              
+
               <div class="mb-3">
                 <label class="form-label">Email</label>
-                <input type="email" class="form-control bg-dark text-light border-secondary" placeholder="Digite seu email" name="email" required>
+                <input
+                  type="email"
+                  class="form-control bg-dark text-light border-secondary"
+                  placeholder="Digite seu email"
+                  name="email"
+                  required>
               </div>
 
               <div class="mb-4">
                 <label class="form-label">Senha</label>
-                <input type="password" class="form-control bg-dark text-light border-secondary" placeholder="Digite sua senha" name="senha" required>
+                <input
+                  type="password"
+                  class="form-control bg-dark text-light border-secondary"
+                  placeholder="Digite sua senha"
+                  name="senha"
+                  required>
               </div>
 
               <button type="submit" class="btn btn-danger w-100">
                 Entrar
               </button>
+
+              @if(session('errorLogin'))
+              <h5 class="mt-3 text-danger">
+                {{ session('errorLogin') }}
+              </h5>
+              @endif
 
             </form>
 
@@ -77,27 +94,56 @@
               Criar Conta
             </h3>
 
-            <form action="{{ route('criarconta') }}" method="POST">
+            <form action="{{ route('criarconta.add') }}" method="POST">
               @csrf
-              
+
               <div class="mb-3">
                 <label class="form-label">Nome</label>
-                <input type="text" class="form-control bg-dark text-light border-secondary" placeholder="Seu nome" name="nome" required>
+                <input
+                  type="text"
+                  class="form-control bg-dark text-light border-secondary"
+                  placeholder="Seu nome"
+                  name="nome"
+                  required>
               </div>
 
               <div class="mb-3">
                 <label class="form-label">Email</label>
-                <input type="email" class="form-control bg-dark text-light border-secondary" placeholder="Seu email" name="email" required>
+                <input
+                  type="email"
+                  class="form-control bg-dark text-light border-secondary"
+                  placeholder="Seu email"
+                  name="email"
+                  required>
               </div>
 
               <div class="mb-4">
                 <label class="form-label">Senha</label>
-                <input type="password" class="form-control bg-dark text-light border-secondary" placeholder="Crie uma senha" name="senha" required>
+                <input
+                  type="password"
+                  class="form-control bg-dark text-light border-secondary"
+                  placeholder="Crie uma senha"
+                  name="senha"
+                  required>
               </div>
 
               <button type="submit" class="btn btn-outline-light w-100">
                 Criar Conta
               </button>
+
+              @if(session('successCadastro'))
+              <h5 class="mt-3 text-success">
+                {{ session('successCadastro') }}
+              </h5>
+              @endif
+
+              @if($errors->any())
+              <ul class="mt-3 text-danger">
+                @foreach($errors->all() as $error)
+                <li>{{ $error }}</li>
+                @endforeach
+              </ul>
+              @endif
 
             </form>
 
@@ -122,4 +168,5 @@
   <script src="{{ asset('js/script.js') }}"></script>
 
 </body>
+
 </html>

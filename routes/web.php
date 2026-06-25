@@ -16,9 +16,12 @@ Route::get('/contato', [contatoController::class, 'contato'])->name('contato');
 Route::get('/usuario', [usuarioController::class, 'usuario'])->name('usuario');
 Route::get('/metas', [metasController::class, 'metas'])->name('metas');
 
-Route::get('/criarconta', function () {
-    return view('criarconta');
-});
 
-Route::post('/criarconta', [criarcontaController::class, 'criarconta'])
-    ->name('criarconta');
+Route::get('/criarconta', [criarcontaController::class, 'index'])
+    ->name('criarconta.index');
+
+Route::post('/criarconta/add', [criarcontaController::class, 'add'])
+    ->name('criarconta.add');
+
+Route::post('/criarconta/login', [criarcontaController::class, 'login'])
+    ->name('criarconta.login');
