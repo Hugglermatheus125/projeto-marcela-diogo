@@ -74,7 +74,7 @@
                         através de acompanhamento diário, metas e apoio emocional.
                     </p>
 
-                    <a href="{{ route('criarconta') }}" class="btn btn-danger btn-lg px-4">
+                    <a href="{{ route('criarconta.index') }}" class="btn btn-danger btn-lg px-4">
                         Começar Agora
                     </a>
 
@@ -263,7 +263,7 @@
                     Pequenas mudanças diárias criam grandes resultados.
                 </p>
 
-                <a href="{{ route('criarconta') }}" class="btn btn-light btn-lg px-5 fw-bold">
+                <a href="{{ route('criarconta.index') }}" class="btn btn-light btn-lg px-5 fw-bold">
                     Criar Conta
                 </a>
 

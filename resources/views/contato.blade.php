@@ -89,11 +89,8 @@
                                 Envie uma mensagem
                             </h3>
 
-                            <!-- O action deverá apontar para a rota de disparo de e-mail/salvamento do form -->
-                            <form action="#" method="POST">
-                                
-                                <!-- Lembre-se de descomentar o @csrf abaixo quando for integrar o back-end -->
-                                <!-- @csrf -->
+                            <form action="{{ route('contato')}}" method="GET">
+                                @csrf
 
                                 <div class="row">
 
@@ -216,7 +213,7 @@
                     Cada passo conta na construção de uma nova vida.
                 </p>
 
-                <a href="{{ route('criarconta') }}" class="btn btn-light btn-lg px-5 fw-bold">
+                <a href="{{ route('criarconta.index') }}" class="btn btn-light btn-lg px-5 fw-bold">
                     Criar Conta
                 </a>
 
